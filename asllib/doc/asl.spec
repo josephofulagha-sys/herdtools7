@@ -3138,16 +3138,15 @@ typing relation get_for_constraints(
   math_layout = [_,_],
 };
 
-semantics relation eval_stmt(env: envs, s: stmt) -> Returning((vs: list0(native_value), new_g: XGraphs), new_env: envs)
-    | Continuing(new_g: XGraphs, new_env: envs) | TThrowing | TDynError | TDiverging
+semantics relation eval_stmt(env: envs, s: stmt) -> TContinuing | TReturning | TThrowing | TDynError | TDiverging
 {
    prose_description = "evaluates a statement {s} in an environment {env},
                         resulting in one of four types of configurations (see
                         more details in
                         \secref{KindsOfSemanticConfigurations}):
                         \begin{itemize}
-                        \item returning configurations with values {vs}, execution graph {new_g}, and a modified environment {new_env};
-                        \item continuing configurations with an execution graph {new_g} and modified environment {new_env};
+                        \item continuing configurations;
+                        \item returning configurations;
                         \item throwing configurations;
                         \item error configurations;
                         \item diverging configurations.
@@ -3200,11 +3199,11 @@ semantics relation eval_for_step(
     limit_opt: option(tint),
     v_start: tint,
     dir: constants_set(UP,DOWN)) ->
-         ((v_step: tint, new_env: envs), new_g: XGraphs) |
-         TReturning |
-         TThrowing |
-         TDynError |
-         TDiverging
+         | ((v_step: tint, new_env: envs), new_g: XGraphs)
+         | TReturning
+         | TThrowing
+         | TDynError
+         | TDiverging
 {
   "either increments or decrements the index variable,
   returning the new value of the index variable, the
