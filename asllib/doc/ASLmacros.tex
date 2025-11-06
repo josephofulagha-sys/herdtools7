@@ -278,7 +278,7 @@
 \newcommand\eqname[0]{\hyperlink{def-deconstruction}{\stackrel{\mathsmaller{\mathsf{is}}}{=}}}
 \newcommand\eqdef[0]{\hyperlink{def-eqdef}{:=}}
 \newcommand\overname[2]{\overbrace{#1}^{#2}}
-\newcommand\overtext[2]{\overbracket{#1}^{\text{#2}}}
+\newcommand\overtext[2]{\overbracket{#1}^{#2}}
 \newcommand\emptyfunc[0]{\hyperlink{def-emptyfunc}{{\emptyset}_\lambda}}
 \newcommand\restrictfunc[2]{{#1}\hyperlink{def-restrictfunc}{|}_{#2}}
 
@@ -344,7 +344,7 @@
 \newcommand\configdomain[1]{\hyperlink{def-configdomain}{\texttt{config\_dom}}({#1})}
 
 \newcommand\sslash[0]{\mathbin{/\mkern-6mu/}}
-\newcommand\terminateas[0]{\hyperlink{def-terminateas}{\sslash}\;}
+\newcommand\terminateas[0]{\hyperlink{def-terminateas}{\textbf{|}}\;}
 \newcommand\booltrans[0]{\hyperlink{relation-booltransition}{\textfunc{bool\_transition}}} % SPECIFIED
 \newcommand\booltransarrow[0]{\longrightarrow}
 \newcommand\Prosetecheck[2]{\hyperlink{relation-techeck}{checking} #1 yields $\True$\ProseTerminateAs{#2}}
@@ -1571,7 +1571,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Semantics/Typing Shared macros
-\newcommand\ProseTerminateAs[1]{\hyperlink{def-proseterminateas}{${}^{\sslash #1 }$}}
+\newcommand\ProseTerminateAs[1]{\hyperlink{def-proseterminateas}{${}^{\terminateas #1 }$}}
 \newcommand\aslsep[0]{\mathbf{,}}
 
 \newcommand\discardvar[0]{\texttt{-}}
